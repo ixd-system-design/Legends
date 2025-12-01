@@ -1,11 +1,11 @@
 {
-  "name": "sikkemha",
+  "name": "local-legends",
   "version": "1.0.0",
-  "description": "This is a Shareable NodeJS workspace for use by Sheridan IXD students.",
-  "main": "index.js",
+  "description": "Local Legends is a demo application for sharing location-based stories using a Node.js backend with Express and MongoDB.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --env-file=.env index.js"
+    "start": "node --watch --env-file=.env server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,7 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mongoose": "^8.8.2"
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0"
   }
 }
