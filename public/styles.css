@@ -1,80 +1,98 @@
-body { 
-  margin: 0px; 
-   
-  font-family: aller,sans-serif;
-font-weight: 400;
-font-style: normal;
-  
+body {
+  margin: 0px;
+
+  font-family: aller, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
 
 /* both maps are full screen. */
-#storyMapContainer, #pickerMapContainer {
+/* Use dvh for dynamic viewport height on mobile (adjusts as browser UI shows/hides) */
+#storyMapContainer,
+#pickerMapContainer {
+  height: 100dvh;
   height: 100vh;
+  /* Fallback for older browsers */
   width: 100vw;
 }
 
+@supports (height: 100dvh) {
+
+  #storyMapContainer,
+  #pickerMapContainer {
+    height: 100dvh;
+  }
+}
+
 /* Hidden by default. Toggled via buttons */
-section#createSection{
+section#createSection {
   display: none;
 }
 
 
-.overlay{
+.overlay {
   position: absolute;
-  width:100%;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 43%);
-  z-index:1;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 43%);
+  z-index: 1;
   display: flex;
   margin: 0;
 }
 
 
 /* navigation bar */
-#navigation{
-  top:0px;
+#navigation {
+  top: 0px;
 }
 
-#navigation #logo{
-  display:block;
-  margin:0 auto 0 0;
+#navigation #logo {
+  display: block;
+  margin: 0 auto 0 0;
   width: 200px;
   padding: 20px;
 }
-#navigation #logo img{
+
+#navigation #logo img {
   width: 100%;
 }
 
-#navigation button{
+#navigation button {
   background: none;
   border: none;
   cursor: pointer;
 }
-#navigation button svg{
+
+#navigation button svg {
   width: 3rem;
   fill: #231F20;
 }
-#navigation button:hover svg{ 
+
+#navigation button:hover svg {
   fill: #F9A11B;
 }
 
 
 /* Form to add new stories. */
-#storyFormContainer{ 
+#storyFormContainer {
   background: #F9A11BDD;
   bottom: 0px;
 }
-#storyFormContainer form{
+
+#storyFormContainer form {
   padding: 1rem;
-  display: flex; 
-  margin: 0; 
+  display: flex;
+  margin: 0;
 }
+
 #storyFormContainer .speechBubble {
-  width: 2em; 
+  width: 2em;
   overflow: hidden;
 }
-#storyFormContainer  .speechBubble .tail{
- position: relative;
+
+#storyFormContainer .speechBubble .tail {
+  position: relative;
   background: white;
   width: 4rem;
   height: 4rem;
@@ -82,66 +100,69 @@ section#createSection{
   top: calc(50% - 2rem);
   left: 1rem;
 }
-#storyFormContainer textarea{ 
+
+#storyFormContainer textarea {
   box-sizing: border-box;
   padding: 1em;
-  border: 0; 
-  font-family: aller,sans-serif;
-  font-weight: 400;  
+  border: 0;
+  font-family: aller, sans-serif;
+  font-weight: 400;
   font-style: normal;
   font-size: 1.5em;
   resize: none;
   width: 80%;
   border-radius: 1rem;
 }
-#storyFormContainer #submitArea{
-  flex-grow:1 ;
+
+#storyFormContainer #submitArea {
+  flex-grow: 1;
   padding-left: 1em;
   display: flex;
   flex-direction: column;
 }
 
-#storyFormContainer #submitArea label{
+#storyFormContainer #submitArea label {
   color: #985b00;
   font-size: 1rem;
   margin-bottom: auto;
   max-width: 10em;
 }
 
-#storyFormContainer #submitArea #submitButton{  
+#storyFormContainer #submitArea #submitButton {
   cursor: pointer;
   border-radius: 10px;
-   font-family: aller-display,sans-serif;
-font-weight: 400;
-font-style: normal;
-  font-size:1rem;
+  font-family: aller-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
   letter-spacing: 0.25em;
   color: #fff;
   background: #000;
-  border: none; 
+  border: none;
   padding: 0 1em;
-  height: 4em;  
+  height: 4em;
 }
- 
+
 /* refresh Button */
-#refreshButton{ 
+#refreshButton {
   position: absolute;
   bottom: 0;
   left: 50%;
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 73%);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 73%);
   border: none;
   display: none;
-} 
+}
 
-#refreshButton svg{
+#refreshButton svg {
   width: 3rem;
   fill: #13be3e;
 }
-#refreshButton:hover svg{ 
-  fill: #F9A11B;
-} 
 
-/* Google Maps Infowindow CSS */ 
+#refreshButton:hover svg {
+  fill: #F9A11B;
+}
+
+/* Google Maps Infowindow CSS */
 /* Increase font size in infowindows */
 .gm-style-iw-d {
   font-size: 1.2rem;
@@ -149,25 +170,25 @@ font-style: normal;
 
 /* Make the infowindow close button a little bigger */
 .gm-style-iw-c button {
-  transform: scale(1.5); 
+  transform: scale(1.5);
   top: 0 !important;
   right: 0 !important;
 }
 
- 
 
-.create-icon{
-  width : 50px;
-  height: 50px; 
-  background-image : url('create.svg');
-  background-size : contain;
-  background-repeat : no-repeat; 
+
+.create-icon {
+  width: 50px;
+  height: 50px;
+  background-image: url('create.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.story-icon{
-  width : 50px;
-  height: 50px; 
-  background-image : url('place.svg');
-  background-size : contain;
-  background-repeat : no-repeat; 
+.story-icon {
+  width: 50px;
+  height: 50px;
+  background-image: url('place.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
